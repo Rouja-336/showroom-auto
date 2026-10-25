@@ -1,0 +1,34 @@
+<section class="search-section">
+    <div class="search-box">
+        <label for="brand">Brand</label>
+        <input id="brand" type="text" #brand
+            placeholder="Audi, BMW, Mercedes..."
+            (input)="selectAutos(brand.value)">
+        <fa-icon [icon]="magnifyingGlass" />
+    </div>
+</section>
+
+<div class="container">
+    @for(auto of selectedAutos; track auto.id){
+        <article class="auto-card">
+            <div class="image-wrapper">
+                <img [src]="`images/${auto.photo}`" [alt]="auto.brand + ' ' + auto.model">
+                <span class="badge" [class.low]="auto.availability <= 3">
+                    {{auto.availability}} in stock
+                </span>
+            </div>
+
+            <div class="details">
+                <span class="brand">{{auto.brand}}</span>
+                <h3>{{auto.model}}</h3>
+
+                <div class="specs">
+                    <span>Power</span><strong>{{auto.power}}</strong>
+                </div>
+                <div class="price">{{auto.price}} <small>DNT</small></div>
+            </div>
+
+            <button (click)="selectCar(auto)">See more</button>
+        </article>
+    }
+</div>

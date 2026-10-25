@@ -1,0 +1,154 @@
+<app-head-bar></app-head-bar>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div>
+        <span class="tag">Premium vehicles</span>
+        <h1>Discover your next luxury car</h1>
+        <p>Explore a hand-picked selection of premium SUVs and sedans from the world's most prestigious brands.</p>
+        <a class="btn" href="#vehicles">Explore vehicles</a>
+    </div>
+    <div class="hero-card">
+        <img [src]="'images/' + featured.photo" [alt]="featured.model">
+        <div class="hero-card-info">
+            <div>
+                <small>{{featured.brand}}</small>
+                <strong>{{featured.model}}</strong>
+            </div>
+            <span class="hero-price">{{featured.price}} DNT</span>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div>
+        <h2 class="title">About Us</h2>
+        <p>We bring together the finest vehicles from leading manufacturers. Every car in our showroom is selected for its performance, comfort and design, so you can find the one that fits your lifestyle.</p>
+        <div class="stats">
+            <div class="stat"><strong>+10</strong><span>Years of experience</span></div>
+            <div class="stat"><strong>{{autoList.length}}</strong><span>Vehicles</span></div>
+            <div class="stat"><strong>{{brandCount}}</strong><span>Brands</span></div>
+        </div>
+    </div>
+    <div class="about-photos">
+        <div class="photo"><img [src]="'images/' + autoList[9].photo" alt="showroom car"></div>
+        <div class="photo"><img [src]="'images/' + autoList[3].photo" alt="showroom car"></div>
+    </div>
+</section>
+
+<!-- BEST OFFER -->
+<section class="offer" id="offer">
+    <div class="offer-text">
+        <span class="tag">Best offer</span>
+        <h2>{{bestOffer.brand}} {{bestOffer.model}}</h2>
+        <p class="offer-price">for {{bestOffer.price}} DNT</p>
+        <a class="btn" href="#vehicles">Browse vehicles</a>
+    </div>
+    <div class="offer-visual">
+        <div class="offer-card">
+            <img [src]="'images/' + bestOffer.photo" [alt]="bestOffer.model">
+        </div>
+    </div>
+</section>
+
+<!-- VEHICLES -->
+<section class="vehicles" id="vehicles">
+    <div class="section-head">
+        <h2 class="title">Our Vehicles</h2>
+        <p>Search by brand, then click "See more" to read the details.</p>
+    </div>
+
+    <app-search-bar
+        [autos]="autoList"
+        (onSelectCar)="selectCar($event)"
+        (onSearch)="selectedCar = null">
+    </app-search-bar>
+
+    @if(selectedCar){
+    <div class="modal-backdrop" (click)="selectedCar = null">
+        <article class="modal" (click)="$event.stopPropagation()">
+            <button class="modal-close" (click)="selectedCar = null" aria-label="Close">×</button>
+
+            <div class="modal-image">
+                <img [src]="'images/' + selectedCar.photo" [alt]="selectedCar.model">
+            </div>
+
+            <div class="modal-content">
+                <span class="eyebrow">{{selectedCar.brand}}</span>
+                <h2>{{selectedCar.model}}</h2>
+                <p>{{selectedCar.description}}</p>
+
+                <div class="modal-specs">
+                    <div><small>Power</small><strong>{{selectedCar.power}}</strong></div>
+                    <div><small>Price</small><strong>{{selectedCar.price}} DNT</strong></div>
+                    <div><small>In stock</small><strong>{{selectedCar.availability}}</strong></div>
+                </div>
+
+                <a class="btn" href="#contact" (click)="selectedCar = null">Contact us</a>
+            </div>
+        </article>
+    </div>
+}
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+    <div class="footer-grid">
+        <div>
+            <strong class="footer-logo">SHOW<span>ROOM</span></strong>
+            <p>Premium vehicles, selected with care. <br> Visit us to find the car that fits your lifestyle.</p>
+        </div>
+        <div>
+            <h3>Quick links</h3>
+            <a href="#about">About</a>
+            <a href="#offer">Best offer</a>
+            <a href="#vehicles">Vehicles</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p>showroomauto@gmail.com</p>
+            <p>+216 94 225 225</p>
+            <p>Mon – Sat, 9:00 – 18:00</p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 Showroom-auto. All rights reserved.</div>
+</footer>
+
+
+
+
+
+
+
+<!-- <app-head-bar></app-head-bar>
+<app-search-bar [autos]="autoList" (onSelectCar)="selectCar($event)" (onSearch)="selectedCar = null"></app-search-bar>
+
+@if(selectedCar){
+    <section class="car-details">
+        <span class="eyebrow">{{selectedCar.brand}}</span>
+        <h2>{{selectedCar.model}}</h2>
+        <p>{{selectedCar.description}}</p>
+    </section>
+} -->
+
+
+<!-- <div class="container">
+    @for(auto of autoList; track auto.id){
+        <div class="auto-card">
+            <img [src]="`images/${auto.photo}`">
+            <div class="details">
+                <h3>{{auto.brand}} {{auto.model}}</h3>
+                <p>
+                    power : {{auto.power}}<br>
+                    price : {{auto.price}}<br>
+                    Only {{auto.availability}} units in stock
+                </p>
+            </div>
+            <div class="see_more">
+                <button>See more...</button>
+            </div>
+            
+        </div>
+    }
+</div> -->

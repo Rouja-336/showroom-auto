@@ -1,0 +1,184 @@
+.search-section {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 10px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    max-width: 560px;
+    padding: 12px 22px;
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-box:focus-within {
+    border-color: #c9a24d;
+    box-shadow: 0 0 0 4px rgba(201, 162, 77, 0.2);
+}
+
+label {
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a8832f;
+}
+
+input {
+    all: unset;
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+fa-icon {
+    color: #64748b;
+}
+
+/* Grille responsive */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+    max-width: none;
+    margin: 0;
+    padding: 30px 0 20px;
+}
+
+.auto-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.auto-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.15);
+}
+
+.image-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 190px;
+    padding: 16px;
+    background: linear-gradient(180deg, #f8fafc, #eef2f7);
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.auto-card:hover img {
+    transform: scale(1.05);
+}
+
+.badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #15803d;
+    background: #dcfce7;
+    border-radius: 999px;
+}
+
+.badge.low {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+.details {
+    flex: 1;
+    padding: 18px 20px 8px;
+}
+
+.brand {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #a8832f;
+}
+
+h3 {
+    margin: 4px 0 14px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.specs {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    border-top: 1px solid #e2e8f0;
+}
+
+.specs strong {
+    color: #1e293b;
+}
+
+.price {
+    margin-top: 6px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.price small {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+button {
+    all: unset;
+    box-sizing: border-box;
+    margin: 12px 20px 20px;
+    padding: 11px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.92rem;
+    color: #fff;
+    background: #0f172a;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #c9a24d;
+    color: #0f172a;
+}
+
+button:focus-visible {
+    outline: 3px solid #c9a24d;
+    outline-offset: 2px;
+}
